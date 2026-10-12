@@ -28,10 +28,11 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if is_idling:
+		idle_timer -= delta
 		if idle_timer <= 0:
 			is_idling = false
 			speed = 300
-			animated_sprite.play("Walk_Right")
+			animated_sprite.play("run")
 		return
 
 	var window_position = Vector2(DisplayServer.window_get_position())
@@ -53,10 +54,10 @@ func maybe_idle():
 	if randf() < 0.3:
 		is_idling = true
 		idle_timer = randf_range(1.0,3.0)
-		var r = randi() % 3
-		if r == 0:
-			animated_sprite.play("sat")
-			speed = 0
+		
+		var idle_anims = ["sat", "sleep", "playing", "sad", "dizzy", "hurt", "attack", "jump"]
+		animated_sprite.play(idle_anims.pick_random())
+		speed = 0
 
 func _on_area_input(_viewport,event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

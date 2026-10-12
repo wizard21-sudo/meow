@@ -201,5 +201,13 @@ centered = false
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=970174024]
+position = Vector2(1, 7)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_fsy5v")
+
+[node name="Label" type="Label" parent="." unique_id=1559630489]
+offset_left = 81.0
+offset_top = 32.0
+offset_right = 121.0
+offset_bottom = 55.0
+text = "hi !"

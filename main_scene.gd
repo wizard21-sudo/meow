@@ -14,6 +14,7 @@ var drag_offset = Vector2()
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var area = $Area2D
+@onready var speech_label = $Label
 
 
 func _ready():
@@ -74,3 +75,8 @@ func _on_area_input(_viewport,event, _shape_idx):
 			var current_pos = DisplayServer.window_get_position()
 			current_pos.y = taskbar_y - (window_size.y * 2)
 			DisplayServer.window_set_position(current_pos)
+			
+			speech_label.text = "hi !"
+			speech_label.visible = true
+
+	OS.shell_open("https://wizard21-sudo.github.io/first-html/")

@@ -11,6 +11,7 @@ var is_idling = false
 var is_dragging = false
 var drag_offset = Vector2()
 
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var area = $Area2D
 
@@ -68,3 +69,8 @@ func _on_area_input(_viewport,event, _shape_idx):
 			drag_offset = mouse_pos - win_pos
 		else:
 			is_dragging = false
+			var usable = DisplayServer.screen_get_usable_rect()
+			var taskbar_y = usable.end.y
+			var current_pos = DisplayServer.window_get_position()
+			current_pos.y = taskbar_y - (window_size.y * 2)
+			DisplayServer.window_set_position(current_pos)

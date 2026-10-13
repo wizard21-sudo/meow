@@ -73,11 +73,13 @@ func _on_area_input(_viewport,event, _shape_idx):
 			var usable = DisplayServer.screen_get_usable_rect()
 			var taskbar_y = usable.end.y
 			var current_pos = DisplayServer.window_get_position()
-			current_pos.y = taskbar_y - (window_size.y * 2)
+			current_pos.y = taskbar_y - DisplayServer.window_get_size().y
 			DisplayServer.window_set_position(current_pos)
-			
-			speech_label.text = "hi !"
-			speech_label.visible = true
 			
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		OS.shell_open("https://wizard21-sudo.github.io/first-html/")
+		
+	
+		speech_label.text = "meow !"
+		speech_label.visible = true
+		

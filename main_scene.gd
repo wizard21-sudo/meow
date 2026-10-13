@@ -78,5 +78,6 @@ func _on_area_input(_viewport,event, _shape_idx):
 			
 			speech_label.text = "hi !"
 			speech_label.visible = true
-
-	OS.shell_open("https://wizard21-sudo.github.io/first-html/")
+			
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		OS.shell_open("https://wizard21-sudo.github.io/first-html/")
